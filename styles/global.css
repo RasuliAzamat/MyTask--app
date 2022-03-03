@@ -6,8 +6,9 @@
         Verdana, sans-serif;
 
     --text-font: 400 18px/1.3 var(--ffamily);
+    --text-font-mobile: 300 16px/1.25 var(--ffamily);
 
-    --transition: all 0.3s ease-in-out;
+    --transition: all 0.2s ease-in-out;
 }
 
 *,
@@ -21,6 +22,15 @@
     color: var(--white-color);
 }
 
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: var(--blue-color);
 }
@@ -32,6 +42,7 @@ html.block-scroll {
 .container {
     max-width: 1064px;
     margin: auto;
+    padding: 20px;
 }
 
 .button {
@@ -40,13 +51,30 @@ html.block-scroll {
 
     border: none;
     cursor: pointer;
-git commit -m 'Project structure created. Header component added.'
     background-color: var(--blue-color);
     transition: var(--transition);
 }
 
 .button:hover {
     opacity: 0.9;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.header {
+    display: none;
+}
+
+.header.active {
+    display: block;
 }
 
 @media (max-width: 800px) {
@@ -60,6 +88,11 @@ git commit -m 'Project structure created. Header component added.'
 }
 
 @media (max-width: 500px) {
+    *,
+    *::before,
+    *::after {
+        font: var(--text-font-mobile);
+    }
     .container {
         padding: 10px;
     }

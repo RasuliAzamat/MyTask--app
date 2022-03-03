@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,15 +10,51 @@
     <body>
         <header class="header active" id="header">
             <div class="header__content container">
-                <h1 class="header__content--title">Добро пожаловать в MyTask</h1>
+                <h1 class="header__content--title">
+                    Добро пожаловать в MyTask
+                </h1>
                 <p class="header__content--decription">
                     Добавляйте заметки, устанавливайте дедлайн и важность. А после выполения -
                     удаляйте.
                 </p>
-                <button class="header__content--button button" data-name="startButton">Приступить</button>
+                <button class="header__content--button button" data-name="startButton">
+                    Приступить
+                </button>
             </div>
         </header>
-        <div class="container"></div>
+        <main class="main">
+            <div class="container">
+                <nav class="nav" id="navigation">
+                    <div class="nav__header">
+                        <a href="#" class="logo" data-name="indexLink">MyTask</a>
+
+                        <div class="burger" data-name="menuBurger">
+                            <span class="burger__item"></span>
+                            <span class="burger__item"></span>
+                            <span class="burger__item"></span>
+                        </div>
+                    </div>
+
+                    <ul class="nav__list">
+                        <li class="nav__list--item">
+                            <a href="#tasks" class="nav__list--link" data-name="tasksLink"
+                                >Задачи</a
+                            >
+                        </li>
+                        <li class="nav__list--item">
+                            <a href="#add" class="nav__list--link active" data-name="addLink"
+                                >Добавить</a
+                            >
+                        </li>
+                        <li class="nav__list--item">
+                            <a href="#journal" class="nav__list--link" data-name="journalLink"
+                                >Журнал</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
 
         <script src="index.js" type="module"></script>
     </body>

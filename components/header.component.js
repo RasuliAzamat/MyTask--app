@@ -6,7 +6,7 @@ export class HeaderComponent extends Component {
     }
 
     init() {
-        if (localStorage.getItem('visited')) this.hide();
+        if (localStorage.getItem('visited')) return this.hide();
 
         document.documentElement.classList.add('block-scroll');
 
