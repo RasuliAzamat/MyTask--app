@@ -21,9 +21,12 @@
     transition: var(--transition);
 }
 
-.nav__list--link:hover,
-.nav__list--link.active {
+.nav__list--link:hover {
     opacity: 0.7;
+}
+
+.nav__list--link.active {
+    border-bottom: 2px solid var(--blue-color);
 }
 
 @media (max-width: 800px) {
@@ -45,7 +48,7 @@
 
         width: 100%;
         height: 100%;
-        background-color: var(--white-color);
+        background-color: var(--blue-color);
         transition: all 0.5s ease-in-out;
     }
 
@@ -65,7 +68,11 @@
     .nav__list--link {
         font-weight: 500;
         font-size: 1.5rem;
-        color: var(--blue-color);
+        color: var(--white-color);
+    }
+
+    .nav__list--link.active {
+        border-bottom-color: var(--white-color);
     }
 
     .burger {
@@ -88,7 +95,7 @@
         width: 100%;
         height: 3px;
 
-        background-color: var(--white-color);
+        background-color: var(--blue-color);
     }
 
     .nav.active .burger {

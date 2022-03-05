@@ -15,7 +15,7 @@ export class HeaderComponent extends Component {
 }
 
 function headerHandler(event) {
-    if (event.target.dataset.name === 'startButton') {
+    if (event.target.dataset.button === 'start') {
         this.hide();
 
         localStorage.setItem('visited', JSON.stringify(true));

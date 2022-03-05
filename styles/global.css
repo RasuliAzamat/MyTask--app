@@ -1,5 +1,7 @@
 :root {
     --blue-color: rgb(90, 130, 250);
+    --red-color: rgb(240, 40, 40);
+    --gray-color: rgb(222, 222, 222);
     --white-color: rgb(250, 250, 250);
 
     --ffamily: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
@@ -19,7 +21,7 @@
     box-sizing: border-box;
 
     font: var(--text-font);
-    color: var(--white-color);
+    color: var(--blue-color);
 }
 
 ul,
@@ -31,18 +33,19 @@ a {
     text-decoration: none;
 }
 
-body {
-    background-color: var(--blue-color);
-}
-
-html.block-scroll {
-    overflow: hidden;
+html {
+    overflow-x: hidden;
+    background-color: var(--white-color);
 }
 
 .container {
     max-width: 1064px;
     margin: auto;
     padding: 20px;
+}
+
+.section {
+    margin-top: 100px;
 }
 
 .button {
@@ -60,6 +63,8 @@ html.block-scroll {
 }
 
 .title {
+    margin-bottom: 40px;
+
     font-weight: 600;
     font-size: 2rem;
 }
@@ -69,11 +74,17 @@ html.block-scroll {
     font-size: 2.2rem;
 }
 
-.header {
+.header,
+.tasks,
+.add,
+.journal {
     display: none;
 }
 
-.header.active {
+.header.active,
+.tasks.active,
+.add.active,
+.journal.active {
     display: block;
 }
 
@@ -82,8 +93,21 @@ html.block-scroll {
         padding: 15px;
     }
 
+    .section {
+        margin-top: 80px;
+    }
+
     .button {
         padding: 9px 50px;
+    }
+
+    .title {
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        font-size: 2rem;
     }
 }
 
@@ -97,7 +121,20 @@ html.block-scroll {
         padding: 10px;
     }
 
+    .section {
+        margin-top: 60px;
+    }
+
     .button {
         padding: 8px 40px;
+    }
+
+    .title {
+        margin-bottom: 20px;
+        font-size: 1.6rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
     }
 }

@@ -1,0 +1,78 @@
+.form__item {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+.form__item.error .form__item--label {
+    color: var(--red-color);
+}
+
+.form__item.error .form__input--input {
+    color: var(--red-color) !important;
+    border-bottom-color: var(--red-color);
+}
+
+.form__item--error {
+    margin-top: 5px;
+
+    color: var(--red-color);
+}
+
+.form__item--label {
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+.form__input--input {
+    padding: 5px 10px;
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 3px solid var(--gray-color);
+
+    color: var(--blue-color) !important;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.form__input--input:focus {
+    border-bottom-color: var(--blue-color);
+}
+
+.form__select {
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 3px solid var(--gray-color);
+
+    background-color: transparent;
+    color: var(--blue-color);
+    transition: var(--transition);
+}
+
+.form__select:focus {
+    border-color: var(--blue-color);
+}
+
+.form__select--option:nth-child(1) {
+    color: var(--gray-color);
+}
+
+.form__select--option:nth-child(2) {
+    color: var(--blue-color);
+}
+
+.form__select--option:nth-child(3) {
+    color: var(--red-color);
+}
+
+.form__button {
+    color: var(--white-color);
+}

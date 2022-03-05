@@ -10,14 +10,12 @@
     <body>
         <header class="header active" id="header">
             <div class="header__content container">
-                <h1 class="header__content--title">
-                    Добро пожаловать в MyTask
-                </h1>
+                <h1 class="header__content--title">Добро пожаловать в MyTask</h1>
                 <p class="header__content--decription">
                     Добавляйте заметки, устанавливайте дедлайн и важность. А после выполения -
                     удаляйте.
                 </p>
-                <button class="header__content--button button" data-name="startButton">
+                <button class="header__content--button button" data-button="start">
                     Приступить
                 </button>
             </div>
@@ -26,9 +24,9 @@
             <div class="container">
                 <nav class="nav" id="navigation">
                     <div class="nav__header">
-                        <a href="#" class="logo" data-name="indexLink">MyTask</a>
+                        <a href="#" class="logo" data-link="index">MyTask</a>
 
-                        <div class="burger" data-name="menuBurger">
+                        <div class="burger" data-button="menu">
                             <span class="burger__item"></span>
                             <span class="burger__item"></span>
                             <span class="burger__item"></span>
@@ -37,22 +35,163 @@
 
                     <ul class="nav__list">
                         <li class="nav__list--item">
-                            <a href="#tasks" class="nav__list--link" data-name="tasksLink"
-                                >Задачи</a
-                            >
+                            <a href="#tasks" class="nav__list--link" data-link="tasks">Задачи</a>
                         </li>
                         <li class="nav__list--item">
-                            <a href="#add" class="nav__list--link active" data-name="addLink"
+                            <a href="#add" class="nav__list--link active" data-link="add"
                                 >Добавить</a
                             >
                         </li>
                         <li class="nav__list--item">
-                            <a href="#journal" class="nav__list--link" data-name="journalLink"
+                            <a href="#journal" class="nav__list--link" data-link="journal"
                                 >Журнал</a
                             >
                         </li>
                     </ul>
                 </nav>
+
+                <section class="journal section" id="journal" data-view="journal">
+                    <h1 class="section__title title">Журнал задач</h1>
+                </section>
+
+                <section class="section">
+                    <form class="add active" id="add" data-view="add">
+                        <h1 class="add__title title">Добавьте задачу</h1>
+
+                        <div class="form__item">
+                            <label for="heading" class="form__item--label">Введите название</label>
+                            <input type="text" name="heading" class="form__input--input" />
+                        </div>
+
+                        <div class="form__item">
+                            <label for="deadline" class="form__item--label">Уточните дедлайн</label>
+                            <input
+                                type="datetime-local"
+                                name="deadline"
+                                class="form__input--input"
+                            />
+                        </div>
+
+                        <label for="priority" class="form__item--label">Определите приоритет</label>
+                        <select name="priority" class="form__select">
+                            <option value="low" class="form__select--option" selected>
+                                Низкий
+                            </option>
+                            <option value="middle" class="form__select--option">Средний</option>
+                            <option value="high" class="form__select--option">Высокий</option>
+                        </select>
+
+                        <button type="submit" class="form__button button">Добавить</button>
+                    </form>
+                </section>
+
+                <section class="section tasks" id="tasks" data-view="tasks">
+                    <h1 class="tasks__title title">Ваши задачи</h1>
+
+                    <div class="tasks__item">
+                        <div class="task__item--level gray"></div>
+
+                        <div class="task__item--body">
+                            <div class="task__item--info">
+                                <h3 class="tasks__item--title">
+                                    Далеко-далеко за словесными горами в стране.
+                                </h3>
+                                <div class="task__item--dates">
+                                    <p class="task__item--date">
+                                        Добавлено: <span class="task__item--date">11.02.2022</span>
+                                    </p>
+                                    <p class="task__item--date">
+                                        Дедлайн:
+                                        <span class="task__item--date red">16.03.2022</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="task__item--controlrs">
+                                <button class="task__item--button button">Сделано</button>
+                                <button class="task__item--button button">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tasks__item">
+                        <div class="task__item--level gray"></div>
+
+                        <div class="task__item--body">
+                            <div class="task__item--info">
+                                <h3 class="tasks__item--title">
+                                    Далеко-далеко за словесными горами в стране.
+                                </h3>
+                                <div class="task__item--dates">
+                                    <p class="task__item--date">
+                                        Добавлено: <span class="task__item--date">11.02.2022</span>
+                                    </p>
+                                    <p class="task__item--date">
+                                        Дедлайн:
+                                        <span class="task__item--date red">16.03.2022</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="task__item--controlrs">
+                                <button class="task__item--button button">Сделано</button>
+                                <button class="task__item--button button">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tasks__item">
+                        <div class="task__item--level gray"></div>
+
+                        <div class="task__item--body">
+                            <div class="task__item--info">
+                                <h3 class="tasks__item--title">
+                                    Далеко-далеко за словесными горами в стране.
+                                </h3>
+                                <div class="task__item--dates">
+                                    <p class="task__item--date">
+                                        Добавлено: <span class="task__item--date">11.02.2022</span>
+                                    </p>
+                                    <p class="task__item--date">
+                                        Дедлайн:
+                                        <span class="task__item--date red">16.03.2022</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="task__item--controlrs">
+                                <button class="task__item--button button">Сделано</button>
+                                <button class="task__item--button button">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tasks__item">
+                        <div class="task__item--level gray"></div>
+
+                        <div class="task__item--body">
+                            <div class="task__item--info">
+                                <h3 class="tasks__item--title">
+                                    Далеко-далеко за словесными горами в стране.
+                                </h3>
+                                <div class="task__item--dates">
+                                    <p class="task__item--date">
+                                        Добавлено: <span class="task__item--date">11.02.2022</span>
+                                    </p>
+                                    <p class="task__item--date">
+                                        Дедлайн:
+                                        <span class="task__item--date red">16.03.2022</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="task__item--controlrs">
+                                <button class="task__item--button button">Сделано</button>
+                                <button class="task__item--button button">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
 
