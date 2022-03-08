@@ -1,6 +1,7 @@
 import { Component } from '../core/component.js';
 import { Form } from '../core/form.js';
 import { Validators } from '../core/validators.js';
+import { databaseService } from '../services/database.service.js';
 
 export class AddComponent extends Component {
     constructor(id) {
@@ -23,8 +24,13 @@ function formHandler(event) {
     if (this.form.isValid()) {
         const formData = {
             ...this.form.values(),
-            date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+            done: false,
             priority: this.$element.priority.value,
+            date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
         };
+
+        databaseService.postData(formData);
+
+        this.form.clear();
     }
 }

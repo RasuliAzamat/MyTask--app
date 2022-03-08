@@ -77,15 +77,17 @@ html {
 .header,
 .tasks,
 .add,
-.journal {
-    display: none;
+.journal,
+.loader {
+    display: none !important;
 }
 
 .header.active,
 .tasks.active,
 .add.active,
-.journal.active {
-    display: block;
+.journal.active,
+.loader.active {
+    display: block !important;
 }
 
 @media (max-width: 800px) {

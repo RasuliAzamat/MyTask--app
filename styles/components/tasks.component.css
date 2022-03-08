@@ -4,6 +4,11 @@
     border-radius: 10px;
 
     background-color: var(--blue-color);
+    transition: var(--transition);
+}
+
+.tasks__item.done {
+    opacity: 0.5;
 }
 
 .tasks__item * {
@@ -18,20 +23,21 @@
 .task__item--level {
     width: 20%;
     height: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
 }
 
-.task__item--level.red {
+.task__item--level.high {
     background-color: var(--red-color);
 }
 
-.task__item--level.gray {
-    background-color: var(--gray-color);
+.task__item--level.middle {
+    background-color: var(--white-color);
 }
 
-.task__item--level.blue {
-    background-color: var(--blue-color);
+.task__item--level.low {
+    opacity: 0.5;
+    background-color: var(--white-color);
 }
 
 .task__item--info {

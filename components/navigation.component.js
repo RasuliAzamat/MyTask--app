@@ -8,6 +8,10 @@ export class NavigationComponent extends Component {
     init() {
         this.$element.addEventListener('click', navigationHandler.bind(this));
     }
+
+    registerLink(links) {
+        this.links = links;
+    }
 }
 
 function navigationHandler(event) {
@@ -32,10 +36,9 @@ function navigationHandler(event) {
             location.href = location.origin + location.pathname + event.target.hash;
         }
 
-        const views = Array.from(document.querySelectorAll('[data-view]'));
-        const activeView = views.find((view) => view.id === event.target.dataset.link);
+        const activeView = this.links.find((link) => link.name === event.target.dataset.link);
 
-        for (const view of views) view.classList.remove('active');
-        activeView.classList.add('active');
+        this.links.forEach((link) => link.component.hide());
+        activeView.component.show();
     }
 }
