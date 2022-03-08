@@ -1,6 +1,6 @@
 .tasks__item {
     padding: 20px;
-    margin: 25px;
+    margin: 25px 0;
     border-radius: 10px;
 
     background-color: var(--blue-color);
