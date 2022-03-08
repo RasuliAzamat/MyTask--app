@@ -50,8 +50,17 @@
                     </ul>
                 </nav>
 
-                <section class="journal section" id="journal" data-view="journal">
-                    <h1 class="section__title title">Журнал задач</h1>
+                <section class="section tasks" id="tasks" data-view="tasks">
+                    <div class="task__head">
+                        <h1 class="tasks__title title">Ваши задачи</h1>
+                        <div class="laoder-container">
+                            <div class="loader" id="loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="section">
@@ -85,17 +94,8 @@
                     </form>
                 </section>
 
-                <section class="section tasks" id="tasks" data-view="tasks">
-                    <div class="task__head">
-                        <h1 class="tasks__title title">Ваши задачи</h1>
-                        <div class="laoder-container">
-                            <div class="loader" id="loader">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
+                <section class="journal section" id="journal" data-view="journal">
+                    <h1 class="journal__title title">Журнал задач</h1>
                 </section>
             </div>
         </main>

@@ -1,6 +1,6 @@
 .tasks__item {
     padding: 20px;
-    margin-bottom: 50px;
+    margin: 25px;
     border-radius: 10px;
 
     background-color: var(--blue-color);
@@ -38,6 +38,10 @@
 .task__item--level.low {
     opacity: 0.5;
     background-color: var(--white-color);
+}
+
+.task__item--level.none {
+    display: none;
 }
 
 .task__item--info {

@@ -1,9 +1,11 @@
-export function renderNote(task) {
+export function renderTask(task, options = { withButton: true, withPriority: true }) {
     const journal = JSON.parse(localStorage.getItem('journal')) || [];
     const candidate = journal.find((journalTask) => journalTask.id === task.id);
 
     const doneButton = `
-        <button class="task__item--button button" data-button="done" data-id="${task.id}" data-heading="${task.heading}">
+        <button class="task__item--button button" data-button="done" data-id="${
+            task.id
+        }" data-heading="${task.heading}">
             ${candidate ? 'Отмена' : 'Сделано'}
         </button>
     `;
@@ -16,7 +18,7 @@ export function renderNote(task) {
 
     return `
         <div class="tasks__item ${candidate ? 'done' : ''}" data-done="${task.done}">
-            <div class="task__item--level ${task.priority}"></div>
+            <div class="task__item--level ${options.withPriority ? task.priority : 'none'}"></div>
 
                 <div class="task__item--body">
                     <div class="task__item--info">
@@ -38,8 +40,8 @@ export function renderNote(task) {
                         </div>
                     </div>
                 <div class="task__item--controlrs">
-                    ${doneButton}
-                    ${deleteButton}
+                    ${options.withButton ? doneButton : ''}
+                    ${options.withButton ? deleteButton : ''}
                 </div>
             </div>
         </div>

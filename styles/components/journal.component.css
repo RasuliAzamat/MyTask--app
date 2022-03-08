@@ -1,0 +1,37 @@
+.journal .tasks__item {
+    opacity: 1;
+    cursor: default;
+}
+
+.journal s[data-link='taskJournal'] {
+    text-decoration: none;
+}
+
+.journal__list--item {
+    margin-left: 20px;
+}
+
+.journal__list--link s {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+.journal__list--link s:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 800px) {
+    .journal__list--link s {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 500px) {
+    .journal__list--link s {
+        font-size: 1.3rem;
+        line-height: 1.3;
+    }
+}
+

@@ -9,7 +9,7 @@ const loader = new LoaderComponent('loader');
 const header = new HeaderComponent('header');
 const navigation = new NavigationComponent('navigation');
 const tasks = new TasksComponent('tasks', { loader });
-const journal = new JournalComponent('journal', { loader });
+const journal = new JournalComponent('journal');
 const add = new AddComponent('add');
 
 navigation.registerLink([

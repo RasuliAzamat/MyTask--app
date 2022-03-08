@@ -1,7 +1,7 @@
 import { Component } from '../core/component.js';
 import { TransformDataService } from '../services/data.transform.service.js';
 import { databaseService } from '../services/database.service.js';
-import { renderNote } from '../templates/task.template.js';
+import { renderTask } from '../templates/task.template.js';
 
 export class TasksComponent extends Component {
     constructor(id, { loader }) {
@@ -19,7 +19,7 @@ export class TasksComponent extends Component {
 
             const tasksObject = await databaseService.getData();
             const tasksArray = TransformDataService.fbObjectToArray(tasksObject);
-            const html = tasksArray.map((task) => renderNote(task));
+            const html = tasksArray.map((task) => renderTask(task));
 
             this.loader.hide();
 
@@ -61,7 +61,7 @@ function tasksControlHandler(event) {
         } else {
             journal.push({
                 id: taskId,
-                headeing: taskHeading.trim(),
+                heading: taskHeading.trim(),
                 date: taskDate.trim(),
                 deadline: taskDeadline.trim(),
                 done: taskDone,

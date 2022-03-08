@@ -54,6 +54,7 @@ html {
 
     border: none;
     cursor: pointer;
+    color: var(--white-color);
     background-color: var(--blue-color);
     transition: var(--transition);
 }
