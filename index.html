@@ -12,8 +12,7 @@
             <div class="header__content container">
                 <h1 class="header__content--title">Добро пожаловать в MyTask</h1>
                 <p class="header__content--decription">
-                    Добавляйте заметки, устанавливайте дедлайн и важность. А после выполения -
-                    удаляйте.
+                    Добавляйте задачи, устанавливайте дедлайн и приоритет.
                 </p>
                 <button class="header__content--button button" data-button="start">
                     Приступить
@@ -26,10 +25,10 @@
                     <div class="nav__header">
                         <a href="#" class="logo" data-link="index">MyTask</a>
 
-                        <div class="burger" data-button="menu">
-                            <span class="burger__item"></span>
-                            <span class="burger__item"></span>
-                            <span class="burger__item"></span>
+                        <div class="burger-wrapper" data-button="menu">
+                            <a class="burger" data-button="menu">
+                                <div class="burger__line" data-button="menu"></div>
+                            </a>
                         </div>
                     </div>
 
@@ -53,7 +52,7 @@
                 <section class="section tasks" id="tasks" data-view="tasks">
                     <div class="task__head">
                         <h1 class="tasks__title title">Ваши задачи</h1>
-                        <div class="laoder-container">
+                        <div class="loader-container">
                             <div class="loader" id="loader">
                                 <span></span>
                                 <span></span>
@@ -74,11 +73,7 @@
 
                         <div class="form__item">
                             <label for="deadline" class="form__item--label">Уточните дедлайн</label>
-                            <input
-                                type="datetime-local"
-                                name="deadline"
-                                class="form__input--input"
-                            />
+                            <input type="date" name="deadline" class="form__input--input" />
                         </div>
 
                         <label for="priority" class="form__item--label">Определите приоритет</label>

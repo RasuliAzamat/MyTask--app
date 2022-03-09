@@ -1,4 +1,5 @@
 import { Component } from '../core/component.js';
+import { databaseService } from '../services/database.service.js';
 import { renderTask } from '../templates/task.template.js';
 
 export class JournalComponent extends Component {
@@ -29,14 +30,24 @@ function journalHandler(event) {
     event.preventDefault();
 
     const target = event.target;
+    const taskId = target.dataset.id;
+    const taskItem = target.closest('.journal__list--item');
 
     if (target.dataset.link === 'taskJournal') {
-        const taskId = target.dataset.id;
-
         const tasks = JSON.parse(localStorage.getItem('journal')) || [];
         const candidate = tasks.find((task) => task.id === taskId);
 
-        target.innerHTML = renderTask(candidate, { withButton: false });
+        target.innerHTML = renderTask(candidate, { deleteButton: true });
+    }
+
+    if (target.dataset.button === 'delete') {
+        databaseService.deleteData(taskId);
+
+        let journal = JSON.parse(localStorage.getItem('journal')) || [];
+        journal = journal.filter((journal) => journal.id !== taskId);
+        localStorage.setItem('journal', JSON.stringify(journal));
+
+        taskItem.remove();
     }
 }
 
@@ -56,6 +67,6 @@ function renderTasksList(list = []) {
                 .join(' ')}</ul>
         `;
     } else {
-        return `<p>Ваш журнал выполненных задач пуст</p>`;
+        return `<p class="text-empty">Ваш список задач пуст</p>`;
     }
 }

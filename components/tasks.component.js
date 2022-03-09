@@ -19,13 +19,19 @@ export class TasksComponent extends Component {
 
             const tasksObject = await databaseService.getData();
             const tasksArray = TransformDataService.fbObjectToArray(tasksObject);
-            const html = tasksArray.map((task) => renderTask(task));
+            const filtredArray = tasksArray.filter((task) => task.done !== true);
+
+            if (filtredArray.length) {
+                const html = filtredArray.map((task) => renderTask(task));
+                this.$element.insertAdjacentHTML('beforeend', html.join(' '));
+            } else {
+                const errorText = `<p class="text-empty">Ваш список задач пуст</p>`;
+                this.$element.insertAdjacentHTML('beforeend', errorText);
+            }
 
             this.loader.hide();
-
-            this.$element.insertAdjacentHTML('beforeend', html.join(' '));
         } catch (error) {
-            const errorText = `<p>Ваш список задач пуст</p>`;
+            const errorText = `<p class="text-empty">Ваш список задач пуст</p>`;
             this.$element.insertAdjacentHTML('beforeend', errorText);
 
             this.loader.hide();
@@ -50,15 +56,15 @@ function tasksControlHandler(event) {
     const taskDeadline = task.querySelector('[data-name="deadline"]').textContent;
 
     if (target.dataset.button === 'done') {
-        task.classList.toggle('done');
+        task.classList.add('done');
+        setTimeout(() => task.remove(), 200);
+
+        databaseService.changeData(taskId);
 
         let journal = JSON.parse(localStorage.getItem('journal')) || [];
         let candidate = journal.find((task) => task.id === taskId);
 
-        if (candidate) {
-            journal = journal.filter((task) => task.id !== taskId);
-            target.textContent = 'Сделано';
-        } else {
+        if (!candidate) {
             journal.push({
                 id: taskId,
                 heading: taskHeading.trim(),
@@ -66,7 +72,6 @@ function tasksControlHandler(event) {
                 deadline: taskDeadline.trim(),
                 done: taskDone,
             });
-            target.textContent = 'Отмена';
         }
 
         localStorage.setItem('journal', JSON.stringify(journal));

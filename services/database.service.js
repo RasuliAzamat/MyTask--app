@@ -7,7 +7,7 @@ class DatabaseService {
         try {
             const response = await fetch(`${this.baseURL}/tasks.json`, {
                 method: 'POST',
-                body: JSON.stringify(data, null, 4),
+                body: JSON.stringify(data),
             });
             return await response.json();
         } catch (error) {
@@ -30,6 +30,20 @@ class DatabaseService {
         try {
             const response = await fetch(`${this.baseURL}/tasks/${id}.json`, {
                 method: 'GET',
+            });
+            return await response.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async changeData(id) {
+        try {
+            const response = await fetch(`${this.baseURL}/tasks/${id}.json`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    done: true,
+                }),
             });
             return await response.json();
         } catch (error) {

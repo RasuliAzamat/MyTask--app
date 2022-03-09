@@ -1,4 +1,7 @@
-export function renderTask(task, options = { withButton: true, withPriority: true }) {
+export function renderTask(
+    task,
+    options = { doneButton: true, deleteButton: true, withPriority: true }
+) {
     const journal = JSON.parse(localStorage.getItem('journal')) || [];
     const candidate = journal.find((journalTask) => journalTask.id === task.id);
 
@@ -33,15 +36,14 @@ export function renderTask(task, options = { withButton: true, withPriority: tru
                             </p>
                             <p class="task__item--date">
                                 Дедлайн: <span class="task__item--date red" data-name="deadline">
-                                    ${new Date(task.deadline).toLocaleDateString()} 
-                                    ${new Date(task.deadline).toLocaleTimeString()}
+                                    ${new Date(task.deadline).toLocaleDateString()}
                                 </span>
                             </p>
                         </div>
                     </div>
                 <div class="task__item--controlrs">
-                    ${options.withButton ? doneButton : ''}
-                    ${options.withButton ? deleteButton : ''}
+                    ${options.doneButton ? doneButton : ''}
+                    ${options.deleteButton ? deleteButton : ''}
                 </div>
             </div>
         </div>

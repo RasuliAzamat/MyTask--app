@@ -3,6 +3,10 @@
     cursor: default;
 }
 
+.journal .tasks__item .task__item--button {
+    color: var(--white-color);
+}
+
 .journal s[data-link='taskJournal'] {
     text-decoration: none;
 }
@@ -34,4 +38,3 @@
         line-height: 1.3;
     }
 }
-

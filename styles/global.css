@@ -38,6 +38,10 @@ html {
     background-color: var(--white-color);
 }
 
+html.block-scroll {
+    overflow-y: hidden;
+}
+
 .container {
     max-width: 1064px;
     margin: auto;
@@ -73,6 +77,10 @@ html {
 .logo {
     font-weight: 700;
     font-size: 2.2rem;
+}
+
+.text-empty {
+    font-size: 1.3rem;
 }
 
 .header,

@@ -6,9 +6,12 @@ export class HeaderComponent extends Component {
     }
 
     init() {
-        if (localStorage.getItem('visited')) return this.hide();
-
         document.documentElement.classList.add('block-scroll');
+
+        if (localStorage.getItem('visited')) {
+            document.documentElement.classList.remove('block-scroll');
+            return this.hide();
+        }
 
         this.$element.addEventListener('click', headerHandler.bind(this));
     }

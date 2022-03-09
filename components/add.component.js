@@ -26,7 +26,7 @@ function formHandler(event) {
             ...this.form.values(),
             done: false,
             priority: this.$element.priority.value,
-            date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+            date: new Date().toLocaleDateString(),
         };
 
         databaseService.postData(formData);

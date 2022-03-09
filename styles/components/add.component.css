@@ -61,18 +61,6 @@
     border-color: var(--blue-color);
 }
 
-.form__select--option:nth-child(1) {
-    color: var(--gray-color);
-}
-
-.form__select--option:nth-child(2) {
-    color: var(--blue-color);
-}
-
-.form__select--option:nth-child(3) {
-    color: var(--red-color);
-}
-
 .form__button {
     color: var(--white-color);
 }
