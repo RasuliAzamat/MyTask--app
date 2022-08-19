@@ -1,4 +1,5 @@
 import { Component } from '../core/component.js';
+import { TasksComponent } from "./tasks.component.js";
 import { Form } from '../core/form.js';
 import { Validators } from '../core/validators.js';
 import { databaseService } from '../services/database.service.js';
@@ -32,5 +33,7 @@ function formHandler(event) {
         databaseService.postData(formData);
 
         this.form.clear();
+
+        alert('Задача успешно добавлена')
     }
 }

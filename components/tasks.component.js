@@ -45,7 +45,7 @@ export class TasksComponent extends Component {
     }
 }
 
-function tasksControlHandler(event) {
+async function tasksControlHandler(event) {
     const target = event.target;
     const taskId = target.dataset.id;
 
@@ -75,6 +75,13 @@ function tasksControlHandler(event) {
         }
 
         localStorage.setItem('journal', JSON.stringify(journal));
+
+        const tasks = await databaseService.getData()
+
+        if (!tasks.length) {
+            const errorText = `<p class="text-empty">Ваш список задач пуст</p>`;
+            this.$element.insertAdjacentHTML('beforeend', errorText);
+        }
     }
 
     if (target.dataset.button === 'delete') {
@@ -83,6 +90,13 @@ function tasksControlHandler(event) {
         let journal = JSON.parse(localStorage.getItem('journal')) || [];
         journal = journal.filter((journal) => journal.id !== taskId);
         localStorage.setItem('journal', JSON.stringify(journal));
+
+        const tasks = await databaseService.getData()
+
+        if (!tasks.length) {
+            const errorText = `<p class="text-empty">Ваш список задач пуст</p>`;
+            this.$element.insertAdjacentHTML('beforeend', errorText);
+        }
 
         task.remove();
     }

@@ -48,6 +48,11 @@ function journalHandler(event) {
         localStorage.setItem('journal', JSON.stringify(journal));
 
         taskItem.remove();
+
+        if (!journal.length) {
+            const errorText = `<p class="text-empty">Ваш журнал задач пуст</p>`;
+            this.$element.insertAdjacentHTML('beforeend', errorText);
+        }
     }
 }
 
